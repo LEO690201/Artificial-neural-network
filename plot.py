@@ -5,7 +5,7 @@ import torch.utils.data as Data
 train_data=FashionMNIST(root='./人工智能/神经网络/LeNet-5/data',
                         train=True,
                         transform=transforms.Compose([transforms.Resize(size=224),transforms.ToTensor()]),
-                        download=False)
+                        download=True)
 train_loader=Data.DataLoader(dataset=train_data,
                              batch_size=64,
                              shuffle=True,
