@@ -1,18 +1,17 @@
 # Artificial-neural-network
-神经网络搭建练习
-AlexNet是由Alex Krizhevsky等人于2012年提出的深度卷积神经网络，其意义包括：
+AlexNet, introduced by Alex Krizhevsky et al. in 2012, is a groundbreaking convolutional neural network that marked significant milestones, including:
 
-- 深度学习复兴：
-在ImageNet竞赛中以显著优势夺冠（Top-5错误率15.3%，传统方法26.2%），引爆了深度学习在计算机视觉的革命。
+- **Revival of Deep Learning:**
+  It triumphed in the ImageNet competition with a Top-5 error rate of 15.3%, compared to 26.2% for traditional methods, igniting the deep learning revolution in computer vision.
 
-- 技术创新：
+- **Technological Innovations:**
+  - **ReLU Activation:** First to employ ReLU (Rectified Linear Unit) to mitigate the vanishing gradient problem.
+  - **Dropout Regularization:** Introduced to prevent overfitting, enhancing model generalization.
+  - **GPU Acceleration:** Leveraged GPUs for parallel processing, overcoming computational constraints.
+  - **Local Response Normalization (LRN):** Implemented to improve training by introducing a form of normalization across feature maps.
 
-  - 首次使用ReLU激活函数解决梯度消失问题
-  - 引入Dropout防止过拟合
-  - 利用GPU并行训练突破算力瓶颈
-  - 提出数据增强和**局部响应归一化（LRN）**优化训练
-- 结构突破：
-5层卷积+3层全连接的更深结构（比LeNet参数量级提升），验证了深度网络的特征提取能力，启发了VGG、ResNet等后续模型。
+- **Structural Innovation:**
+  Comprising 5 convolutional layers followed by 3 fully connected layers, it demonstrated the power of deeper architectures, influencing designs like VGG and ResNet.
 
-范式影响：
-推动计算机视觉从手工特征转向端到端学习，确立了“大数据+深度网络+GPU”的现代AI训练范式。
+- **Paradigm Shift:**
+  It catalyzed a shift in computer vision from hand-crafted features to end-to-end learning, establishing the modern AI training paradigm based on large datasets, deep networks, and GPU-intensive computation.
