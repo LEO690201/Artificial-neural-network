@@ -1,4 +1,18 @@
 # Artificial-neural-network
 神经网络搭建练习
-- [LeNet](https://github.com/LEO690201/Artificial-neural-network/tree/LeNet-5)
-- [AlexNet](https://github.com/LEO690201/Artificial-neural-network/tree/AlexNet)
+AlexNet是由Alex Krizhevsky等人于2012年提出的深度卷积神经网络，其意义包括：
+
+- 深度学习复兴：
+在ImageNet竞赛中以显著优势夺冠（Top-5错误率15.3%，传统方法26.2%），引爆了深度学习在计算机视觉的革命。
+
+- 技术创新：
+
+  - 首次使用ReLU激活函数解决梯度消失问题
+  - 引入Dropout防止过拟合
+  - 利用GPU并行训练突破算力瓶颈
+  - 提出数据增强和**局部响应归一化（LRN）**优化训练
+- 结构突破：
+5层卷积+3层全连接的更深结构（比LeNet参数量级提升），验证了深度网络的特征提取能力，启发了VGG、ResNet等后续模型。
+
+范式影响：
+推动计算机视觉从手工特征转向端到端学习，确立了“大数据+深度网络+GPU”的现代AI训练范式。
