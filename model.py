@@ -16,7 +16,7 @@ class LeNet(nn.Module):   # 初始化LeNet-5模型，定义网络层，激活函
         # 池化层4，池化核大小2，步长为2
         self.flatten=nn.Flatten()
         # 将其平展成一维
-        self.f5=nn.Linear(in_features=16*6*6,out_features=120)
+        self.f5=nn.Linear(in_features=16*5*5,out_features=120)
         # 全连接层1，输入特征16*5*5，输出特征120
         self.f6=nn.Linear(in_features=120,out_features=84)
         # 全连接层2，输入特征120，输出特征84
