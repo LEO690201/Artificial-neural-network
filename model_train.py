@@ -12,7 +12,7 @@ import pandas as pd
 
 '''数据加载'''
 def train_val_data_process():   # 定义训练集和验证集的处理函数
-    train_data=FashionMNIST(root='./人工智能/神经网络/LeNet-5/data',
+    train_data=FashionMNIST(root='./data',
                             train=True,
                             transform=transforms.Compose([transforms.Resize(size=32),transforms.ToTensor()]),
                             download=False)
