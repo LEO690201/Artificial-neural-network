@@ -1,10 +1,8 @@
 # Artificial-neural-network
-神经网络搭建练习
+LeNet, conceived by Yann LeCun et al. in 1998, represents an seminal convolutional neural network (CNN) with significance that includes:
 
-
-
-LeNet是由Yann LeCun等人于1998年提出的早期卷积神经网络（CNN），其意义在于：
-
-- 开创性结构：首次将卷积层、池化层和全连接层结合，奠定了现代CNN的基础架构，推动了深度学习在计算机视觉中的应用。
-- 实际验证：成功应用于手写数字识别（如银行支票处理），证明了CNN解决实际问题的有效性。
-- 技术奠基：引入局部连接、权值共享和降采样等核心思想，显著减少参数数量，为后续AlexNet、ResNet等模型提供了设计范式。
+- **Pioneering Architecture:** It was the first to integrate convolutional layers, pooling layers, and fully connected layers, establishing the blueprint for modern CNNs and accelerating the adoption of deep learning in computer vision.
+  
+- **Practical Application:** Its successful deployment in handwritten digit recognition, notably in check processing systems, demonstrated the practical efficacy of CNNs in real-world scenarios.
+  
+- **Foundational Techniques:** LeNet introduced key concepts such as local connections, weight sharing, and downsampling, which not only minimized the number of parameters but also set the design principles for subsequent influential models like AlexNet and ResNet.
