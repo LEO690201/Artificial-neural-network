@@ -25,9 +25,9 @@ def test_model_process(model, image):
 if __name__ == '__main__':
     # 定义模型并加载最优模型参数
     model = LeNet()
-    model.load_state_dict(torch.load('./人工智能/神经网络/LeNet-5/best_model_params.pth'))
+    model.load_state_dict(torch.load('./best_model_params.pth'))
     # 加载并预处理图片
-    image_path = './人工智能/神经网络/LeNet-5/my_photo3.png'  # 替换为你的图片路径
+    image_path = './my_photo3.png'  # 替换为你的图片路径
     image = load_and_preprocess_image(image_path)
     # 测试模型
     predicted_label = test_model_process(model, image)
