@@ -7,7 +7,7 @@ from model import AlexNet
 def test_data_process():   # 定义训练集和验证集的处理函数
     test_data=FashionMNIST(root='./人工智能/神经网络/LeNet-5/data',
                             train=False,
-                            transform=transforms.Compose([transforms.Resize(size=32),transforms.ToTensor()]),
+                            transform=transforms.Compose([transforms.Resize(size=227),transforms.ToTensor()]),
                             download=False)
     test_dataloader=Data.DataLoader(dataset=test_data,
                                      batch_size=1,      # 可以一张一张测试
@@ -45,7 +45,7 @@ def test_model_process(model,test_dataloader):
 
 if __name__=='__main__':
     # 定义模型,将模型实例化
-    model=LeNet()
+    model=AlexNet()
     model.load_state_dict(torch.load('./人工智能/神经网络/LeNet-5/best_model_params.pth'))  # 加载最优模型参数
 
     test_loader=test_data_process()   # 加载测试集数据
@@ -55,22 +55,22 @@ if __name__=='__main__':
 # 87.52%
 
 
-    # 测试集推理过程可视化
-    device='cuda' if torch.cuda.is_available() else 'cpu'   # 选择设备
-    model.to(device)   # 将模型加载到设备上
-    classes=['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
-    with torch.no_grad():
-        for b_x,b_y in test_loader:
-            b_x=b_x.to(device)
-            b_y=b_y.to(device)
+    # # 测试集推理过程可视化
+    # device='cuda' if torch.cuda.is_available() else 'cpu'   # 选择设备
+    # model.to(device)   # 将模型加载到设备上
+    # classes=['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+    # with torch.no_grad():
+    #     for b_x,b_y in test_loader:
+    #         b_x=b_x.to(device)
+    #         b_y=b_y.to(device)
             
-            # 设置为验证模式
-            model.eval()
-            output=model(b_x)
-            pre_lab=torch.argmax(output,dim=1)
-            result=pre_lab.item()  # 将其转换为数字
-            label=b_y.item()
-            print('预测值： ',classes[result],'~~~~~~ 真实值： ',classes[label])
+    #         # 设置为验证模式
+    #         model.eval()
+    #         output=model(b_x)
+    #         pre_lab=torch.argmax(output,dim=1)
+    #         result=pre_lab.item()  # 将其转换为数字
+    #         label=b_y.item()
+    #         print('预测值： ',classes[result],'~~~~~~ 真实值： ',classes[label])
 
 
 
