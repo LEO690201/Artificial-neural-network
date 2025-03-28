@@ -15,7 +15,7 @@ def train_val_data_process():   # 定义训练集和验证集的处理函数
     train_data=FashionMNIST(root='./data',
                             train=True,
                             transform=transforms.Compose([transforms.Resize(size=227),transforms.ToTensor()]),
-                            download=False)
+                            download=True)
     train_data,val_data=Data.random_split(train_data,[round(len(train_data)*0.8),   # 随机划分训练集和验证集
                                                       round(len(train_data)*0.2)])  # 验证集
     train_dataloader=Data.DataLoader(dataset=train_data,
