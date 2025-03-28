@@ -120,7 +120,7 @@ def train_model_process(model,train_dataloader,val_dataloader,num_epochs):   # �
     # 选择最优参数，
     # 加载最高准确率下的模型参数
     model.load_state_dict(best_model_wts)
-    torch.save(model.state_dict(),'./人工智能/神经网络/LeNet-5/best_model_params.pth')   # 保存模型参数
+    torch.save(model.state_dict(),'./best_model_params.pth')   # 保存模型参数
     
     # torch.save(best_model_wts,'./人工智能/神经网络/LeNet-5/best_model_params.pth')
 
@@ -157,7 +157,7 @@ if __name__=='__main__':
     # 加载数据
     train_dataloader,val_dataloader=train_val_data_process()
     # 训练模型
-    train_process=train_model_process(LeNet,train_dataloader,val_dataloader,num_epochs=20)
+    train_process=train_model_process(LeNet,train_dataloader,val_dataloader,num_epochs=50)
     # 绘制训练曲线
     matplot_acc_loss(train_process)
     plt.show()
