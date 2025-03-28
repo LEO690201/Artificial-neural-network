@@ -1,0 +1,1 @@
+print('预测值： ',classes[result],'~~~~~~ 真实值： ',classes[label])
