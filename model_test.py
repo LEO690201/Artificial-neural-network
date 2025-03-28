@@ -5,7 +5,7 @@ from torchvision.datasets import FashionMNIST
 from model import LeNet
 
 def test_data_process():   # 定义训练集和验证集的处理函数
-    test_data=FashionMNIST(root='./人工智能/神经网络/LeNet-5/data',
+    test_data=FashionMNIST(root='./data',
                             train=False,
                             transform=transforms.Compose([transforms.Resize(size=32),transforms.ToTensor()]),
                             download=False)
