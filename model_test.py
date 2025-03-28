@@ -5,7 +5,7 @@ from torchvision.datasets import FashionMNIST
 from model import AlexNet
 
 def test_data_process():   # 定义训练集和验证集的处理函数
-    test_data=FashionMNIST(root='./人工智能/神经网络/LeNet-5/data',
+    test_data=FashionMNIST(root='./data',
                             train=False,
                             transform=transforms.Compose([transforms.Resize(size=227),transforms.ToTensor()]),
                             download=False)
@@ -46,7 +46,7 @@ def test_model_process(model,test_dataloader):
 if __name__=='__main__':
     # 定义模型,将模型实例化
     model=AlexNet()
-    model.load_state_dict(torch.load('./人工智能/神经网络/LeNet-5/best_model_params.pth'))  # 加载最优模型参数
+    model.load_state_dict(torch.load('./best_model_params.pth'))  # 加载最优模型参数
 
     test_loader=test_data_process()   # 加载测试集数据
     test_model_process(model,test_loader)   # 测试模型
@@ -71,6 +71,9 @@ if __name__=='__main__':
     #         result=pre_lab.item()  # 将其转换为数字
     #         label=b_y.item()
     #         print('预测值： ',classes[result],'~~~~~~ 真实值： ',classes[label])
+
+
+
 
 
 
