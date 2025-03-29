@@ -19,11 +19,11 @@ def train_val_data_process():   # 定义训练集和验证集的处理函数
     train_data,val_data=Data.random_split(train_data,[round(len(train_data)*0.8),   # 随机划分训练集和验证集
                                                       round(len(train_data)*0.2)])  # 验证集
     train_dataloader=Data.DataLoader(dataset=train_data,
-                                     batch_size=128,
+                                     batch_size=32,
                                      shuffle=True,
                                      num_workers=2)   # 训练集的DataLoader(划分)
     val_dataloader=Data.DataLoader(dataset=val_data,
-                                   batch_size=128,
+                                   batch_size=32,
                                    shuffle=False,
                                    num_workers=2)   # 验证集的DataLoader
     return train_dataloader,val_dataloader
