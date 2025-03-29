@@ -2,7 +2,7 @@ import torch
 import torch.utils.data as Data
 from torchvision import transforms
 from torchvision.datasets import FashionMNIST
-from model import AlexNet
+from model import VGG16
 
 def test_data_process():   # 定义训练集和验证集的处理函数
     test_data=FashionMNIST(root='./data',
@@ -45,7 +45,7 @@ def test_model_process(model,test_dataloader):
 
 if __name__=='__main__':
     # 定义模型,将模型实例化
-    model=AlexNet()
+    model=VGG16()
     model.load_state_dict(torch.load('./best_model_params.pth'))  # 加载最优模型参数
 
     test_loader=test_data_process()   # 加载测试集数据
