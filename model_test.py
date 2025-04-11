@@ -2,12 +2,12 @@ import torch
 import torch.utils.data as Data
 from torchvision import transforms
 from torchvision.datasets import FashionMNIST
-from model import ResNet18,Residual
+from model import GoogLeNet,Inception
 
 def test_data_process():   # 定义训练集和验证集的处理函数
     test_data=FashionMNIST(root='./data',
                             train=False,
-                            transform=transforms.Compose([transforms.Resize(size=227),transforms.ToTensor()]),
+                            transform=transforms.Compose([transforms.Resize(size=224),transforms.ToTensor()]),
                             download=False)
     test_dataloader=Data.DataLoader(dataset=test_data,
                                      batch_size=1,      # 可以一张一张测试
@@ -45,15 +45,15 @@ def test_model_process(model,test_dataloader):
 
 if __name__=='__main__':
     # 定义模型,将模型实例化
-    model=ResNet18(Residual)
+    model=GoogLeNet(Inception)
     model.load_state_dict(torch.load('./best_model_params.pth'))  # 加载最优模型参数
 
     test_loader=test_data_process()   # 加载测试集数据
     test_model_process(model,test_loader)   # 测试模型
 
 
-# 87.52%
 
+#92.4%
 
     # # 测试集推理过程可视化
     # device='cuda' if torch.cuda.is_available() else 'cpu'   # 选择设备

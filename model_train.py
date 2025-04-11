@@ -4,7 +4,7 @@ from torchvision import transforms
 import torch.utils.data as Data
 import numpy as np
 import matplotlib.pyplot as plt
-from model import ResNet18,Residual
+from model import GoogLeNet,Inception
 import torch.nn as nn
 import copy
 import time
@@ -14,7 +14,7 @@ import pandas as pd
 def train_val_data_process():   # 定义训练集和验证集的处理函数
     train_data=FashionMNIST(root='./data',
                             train=True,
-                            transform=transforms.Compose([transforms.Resize(size=224),transforms.ToTensor()]),
+                            transform=transforms.Compose([transforms.Resize(size=227),transforms.ToTensor()]),
                             download=True)
     train_data,val_data=Data.random_split(train_data,[round(len(train_data)*0.8),   # 随机划分训练集和验证集
                                                       round(len(train_data)*0.2)])  # 验证集
@@ -131,6 +131,30 @@ def train_model_process(model,train_dataloader,val_dataloader,num_epochs):   # �
         'train_acc_all':train_acc_all,
         'val_acc_all':val_acc_all
     })   # 保存训练过程数据
+    # 修改 train_model_process 函数中的 DataFrame 创建部分
+    print(type(train_loss_all), train_loss_all)
+    print(type(val_loss_all), val_loss_all)
+    print(type(train_acc_all), train_acc_all)
+    print(type(val_acc_all), val_acc_all)
+    # train_process = pd.DataFrame(data={
+    #     'epoch': list(range(num_epochs)),  # 将 range 对象转换为列表
+    #     'train_loss_all': [float(x) for x in train_loss_all],  # 确保是列表
+    #     'val_loss_all': [float(x) for x in val_loss_all],  # 确保是列表
+    #     'train_acc_all': [float(x) for x in train_acc_all],  # 确保是列表
+    #     'val_acc_all': [float(x) for x in val_acc_all]  # 确保是列表
+    # })def train_model_process(model, train_dataloader, val_dataloader, num_epochs):
+    # ... [省略前面的代码] ...
+
+    # 确保所有列表的元素为Python原生类型，并转换为NumPy数组再展平
+    # train_process = pd.DataFrame(data={
+    #     'epoch': np.arange(num_epochs).tolist(),
+    #     'train_loss_all': np.array(train_loss_all, dtype=float).flatten().tolist(),
+    #     'val_loss_all': np.array(val_loss_all, dtype=float).flatten().tolist(),
+    #     'train_acc_all': np.array(train_acc_all, dtype=float).flatten().tolist(),
+    #     'val_acc_all': np.array(val_acc_all, dtype=float).flatten().tolist()
+    # })
+
+    # return train_process
 
     return train_process   # 返回训练过程数据
         
@@ -153,13 +177,13 @@ def matplot_acc_loss(train_process):
 
 if __name__=='__main__':
     # 加载模型
-    ResNet18=ResNet18(Residual)
+    GoogLeNet=GoogLeNet(Inception)
     # 加载数据
     train_dataloader,val_dataloader=train_val_data_process()
     # 训练模型
-    train_process=train_model_process(ResNet18,train_dataloader,val_dataloader,num_epochs=20)
+    train_process=train_model_process(GoogLeNet,train_dataloader,val_dataloader,num_epochs=20)
     # 绘制训练曲线
     matplot_acc_loss(train_process)
     plt.show()
-    # 将训练过程生成的图片保存到文件
-    plt.savefig('train_process.png')
+    plt.savefig('./train_process.png')
+
